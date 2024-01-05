@@ -25,7 +25,7 @@ class Patient {
         patient.lieu = this.lieu
 
         console.log(`${this.nom} est actuellement dans le/la ${this.lieu}`)
-        console.log(`Personne présente dans le cabinet ----------> ${destination.personnePresente}`);
+        console.log("Personne présente dans le cabinet ---------->",destination.personnePresente);
         
     }
 
@@ -75,66 +75,92 @@ let docteur = {
 //! La méthode osculpter va permettre de contrôler chaque patient en fonction de sa maladie.
 //! J'ai utilisé des conditons pour vérifier la maladie, déduire le montant de la consultation et récupérer
 //! la prescription
+//! J'ai utilisé la fonction setTimeout pour créer un effet de paiement.
 
     osculpter(patient) {
+
         if (patient.maladie == "mal indenté") {
             patient.poche = docteur.prescription.p1
 
             console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p1}`);
-            console.log(`Cela vous fera 50 euros.`);
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
+            console.log(`La contultation est à 50 euros.`);
+           
+            setTimeout(() => {console.log("paiement en cours..."); }, 1000)
+            setTimeout(() => {console.log("paiement accepté !"); }, 2000)
+            setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
             patient.argent = patient.argent - 50
-            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
 
-            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+          
         }
 
         else if (patient.maladie == "unsave") {
             patient.poche = docteur.prescription.p2
 
             console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p2}`);
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
             console.log(`Cela vous fera 50 euros.`);
 
-            patient.argent = patient.argent - 50
-            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+            setTimeout(() => {console.log("paiement en cours..."); }, 1000)
+            setTimeout(() => {console.log("paiement accepté !"); }, 2000)
+            setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
-            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
+            patient.argent = patient.argent - 50
+
+            
         }
 
         else if (patient.maladie == "404") {
             patient.poche = docteur.prescription.p3
 
             console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p3}`);
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
             console.log(`Cela vous fera 50 euros.`);
+            
+            setTimeout(() => {console.log("paiement en cours..."); }, 1000)
+            setTimeout(() => {console.log("paiement accepté !"); }, 2000)
+            setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
             patient.argent = patient.argent - 50
-            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
 
-            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+         
         }
 
         else if (patient.maladie == "azmatique") {
             patient.poche = docteur.prescription.p4
 
             console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p4}`);
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
             console.log(`Cela vous fera 50 euros.`);
 
-            patient.argent = patient.argent - 50
-            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+            setTimeout(() => {console.log("paiement en cours..."); }, 1000)
+            setTimeout(() => {console.log("paiement accepté !"); }, 2000)
+            setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
-            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+            patient.argent = patient.argent - 50
+           
         }
 
         else if (patient.maladie == "syntaxError") {
             patient.poche = docteur.prescription.p5
 
             console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p5}`);
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+
             console.log(`Cela vous fera 50 euros.`);
 
-            patient.argent = patient.argent - 50
-            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+            setTimeout(() => {console.log("paiement en cours..."); }, 1000)
+            setTimeout(() => {console.log("paiement accepté !"); }, 2000)
+            setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
-            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+            patient.argent = patient.argent - 50
+
         }
 
         else {
@@ -168,7 +194,9 @@ let pharmacie = {
         t3 : 35,
         t4 : 40,
         t5 : 20,
-    }
+    },
+
+    lieu : "pharmacie"
 
 }
 
@@ -178,7 +206,9 @@ let pharmacie = {
 
 console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Bienvenue chez le médecin $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$`);
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+`);
 
 console.log(`${marcus.nom} est dans la ${marcus.lieu}`);
 console.log("________________________________________________________________________________________");
@@ -193,6 +223,3 @@ console.log("___________________________________________________________________
 docteur.osculpter(marcus)
 
 
-console.log("________________________________________________________________________________________");
-
-docteur.osculpter(optimus)
