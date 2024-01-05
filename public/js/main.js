@@ -85,6 +85,8 @@ let docteur = {
 
     osculpter(patient) {
 
+        setInterval(function () {element.innerHTML += "miaous"}, 1000);
+
         if (patient.maladie == "mal indenté") {
             patient.poche = docteur.prescription.p1
 
@@ -116,7 +118,7 @@ let docteur = {
 
             patient.argent = patient.argent - 50
 
-            
+             patient.etatDeSante = "en traitement"
             
         }
 
@@ -134,6 +136,8 @@ let docteur = {
 
             patient.argent = patient.argent - 50
 
+            patient.etatDeSante = "en traitement"
+
         }
 
         else if (patient.maladie == "azmatique") {
@@ -149,6 +153,8 @@ let docteur = {
             // setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
 
             patient.argent = patient.argent - 50
+
+            patient.etatDeSante = "en traitement"
            
         }
 
@@ -166,6 +172,8 @@ let docteur = {
             
 
             patient.argent = patient.argent - 50
+
+            patient.etatDeSante = "en traitement"
 
         }
 
@@ -243,14 +251,19 @@ console.log("___________________________________________________________________
 
 pharmacie.pharmacyMoving(tabPatient[i])
 
+console.log("Vous avez :",tabPatient[i].argent - pharmacie.traitement[i], "euros");
+
 if ((tabPatient[i].argent - pharmacie.traitement[i]) > 0) {
+    console.log("Je peux vous fournir le traitement");
     console.log(tabPatient[i].nom," est guéri");
+    tabPatient[i].etatDeSante = "guéri"
     
 }
 
 else if ((tabPatient[i].argent - pharmacie.traitement[i]) < 0) {
     console.log(tabPatient[i].nom," est mort. C'est Allah que nous appartenons et c'est vers lui que nous retournerons");
     tabPatient[i].lieu = "cimetière"
+    tabPatient[i].etatDeSante = "mort"
 
 }
 
@@ -259,18 +272,6 @@ console.log("___________________________________________________________________
     
 }
 
+console.log(tabPatient);
 
-// for (let i = 0; i < pharmacie.traitement.length; i++) {
 
-//     if ((tabPatient[i].argent - pharmacie.traitement[i]) > 0) {
-//         console.log(tabPatient[i].nom," est guéri");
-        
-//     }
-
-//     else if ((tabPatient[i].argent - pharmacie.traitement[i]) < 0) {
-//         console.log(tabPatient[i].nom," est mort. C'est Allah que nous appartenons et c'est vers lui que nous retournerons");
-//         tabPatient[i].lieu = "cimetière"
-
-// }
-
-// }
