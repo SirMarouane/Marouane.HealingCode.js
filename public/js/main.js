@@ -6,27 +6,38 @@
 //! Définition d'une classe patient pour créer les personnages.
 
 class Patient {
-    constructor(nom, maladie, argent, poche, etatDeSante) {
+    constructor(nom, maladie, argent, poche, etatDeSante, lieu) {
         
         this.nom = nom;
         this.maladie = maladie ;
         this.argent = argent ;
         this.poche = poche ;
         this.etatDeSante = etatDeSante ;
+        this.lieu = lieu ;
+
     
     }
 
-    seDeplacer(destination,lieuActuel) {
+    seDeplacer(destination,patient) {
 
+        this.lieu = destination.lieu
+        destination.personnePresente.push(this.nom)
+        patient.lieu = this.lieu
+
+        console.log(`${this.nom} est actuellement dans le/la ${this.lieu}`)
+        console.log(`Personne présente dans le cabinet ----------> ${destination.personnePresente}`);
+        
     }
 
 }
 
-let marcus = new Patient ("Marcus", "Mal indenté", 100, "vide", "malade") ;
-let optimus = new Patient ("Optimus", "unsave", 200, "vide", "malade") ;
-let sangoku = new Patient ("Sangoku", "404", 80, "vide", "malade") ;
-let darthvader = new Patient ("Darthvader", "azmatique", 110, "vide", "malade") ;
-let semicolon = new Patient ("Semicolon", "syntaxError", 60, "vide", "malade") ;
+let marcus = new Patient ("Marcus", "Mal indenté", 100, "vide", "malade","salledAttente") ;
+let optimus = new Patient ("Optimus", "unsave", 200, "vide", "malade","salledAttente") ;
+let sangoku = new Patient ("Sangoku", "404", 80, "vide", "malade", "salledAttente") ;
+let darthvader = new Patient ("Darthvader", "azmatique", 110, "vide", "malade", "salledAttente") ;
+let semicolon = new Patient ("Semicolon", "syntaxError", 60, "vide", "malade", "salledAttente") ;
+
+
 
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -59,14 +70,16 @@ let docteur = {
 
     caisse : 0,
     personnePresente : [],
-    lieu : ""
+    lieu : "cabinet"
 
 }
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Description de la pharmacie $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
- 
+
+//! Définition d'un objet pharmacie avec le prix de chaque traitement
+
 //? | Traitement           | Prix  |
 //? | -------------------- | ----- |
 //? | `ctrl+maj+f`         | 60€   |
@@ -86,4 +99,20 @@ let pharmacie = {
 
 }
 
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Début de la simulation du projet $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Bienvenue chez le médecin $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$`);
+
+console.log(`${marcus.nom} est dans la ${marcus.lieu}`);
+console.log("________________________________________________________________________________________");
+
+console.log(`Bonjour ${marcus.nom}, veuillez entrer.`);
+console.log("________________________________________________________________________________________");
+
+marcus.seDeplacer(docteur,marcus)
+
+console.log("________________________________________________________________________________________");
