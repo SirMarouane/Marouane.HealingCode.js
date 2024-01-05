@@ -81,11 +81,8 @@ let docteur = {
 //! La méthode osculpter va permettre de contrôler chaque patient en fonction de sa maladie.
 //! J'ai utilisé des conditons pour vérifier la maladie, déduire le montant de la consultation et récupérer
 //! la prescription
-//! J'ai utilisé la fonction setTimeout pour créer un effet de paiement.
 
     osculpter(patient) {
-
-        setInterval(function () {element.innerHTML += "miaous"}, 1000);
 
         if (patient.maladie == "mal indenté") {
             patient.poche = docteur.prescription.p1
@@ -95,9 +92,6 @@ let docteur = {
 
             console.log(`La consultation est à 50 euros.`);
            
-       
-            
-
             patient.argent = patient.argent - 50
 
             patient.etatDeSante = "en traitement"
@@ -190,7 +184,8 @@ let docteur = {
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Description de la pharmacie $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-//! Définition d'un objet pharmacie avec le prix de chaque traitement
+//! Définition d'un objet pharmacie avec le prix de chaque traitement et d'une méthode permettant d'aller
+//! à la pharmacie
 
 //? | Traitement           | Prix  |
 //? | -------------------- | ----- |
@@ -222,6 +217,10 @@ console.log(`__________________________________________ Bienvenue chez le médec
 
 
 `);
+
+//! J'ai mis une boucle for qui permet de faire passer chaque patient chez le docteur à l'aide de l'incrémentation
+//! Ensuite, j'ai conditionné les étapes de la pharmacie pour savoir si le patient survie ou non
+//! J'ai utilisé la fonction setTimeout pour créer un effet de paiement.
 
 let tabPatient = [marcus, optimus, sangoku, darthvader, semicolon]
 
