@@ -194,13 +194,7 @@ let docteur = {
 
 let pharmacie = {
 
-    Traitement : {
-        t1 : 60,
-        t2 : 100,
-        t3 : 35,
-        t4 : 40,
-        t5 : 20,
-    },
+    traitement : [60,100,35,40,20],
 
     lieu : "pharmacie",
 
@@ -223,7 +217,7 @@ console.log(`__________________________________________ Bienvenue chez le médec
 
 let tabPatient = [marcus, optimus, sangoku, darthvader, semicolon]
 
-for (let i = 0; i < tabPatient.length; i++) {
+for (let i = 0; i < tabPatient.length; i++ )  {
 
 console.log(`${tabPatient[i].nom} est dans la ${tabPatient[i].lieu}`);
 console.log("_________________________________________________________________________________________________________________________");
@@ -231,11 +225,11 @@ console.log("___________________________________________________________________
 console.log(`Bonjour ${tabPatient[i].nom}, veuillez entrer.`);
 console.log("_________________________________________________________________________________________________________________________");
 
-tabPatient[i].seDeplacer(docteur)
+tabPatient[i].seDeplacer(docteur) ;
 
 console.log("_________________________________________________________________________________________________________________________");
 
-docteur.osculpter(tabPatient[i])
+docteur.osculpter(tabPatient[i]) ;
 
 // setTimeout(() => {console.log("paiement en cours..."); }, 1000)
 // setTimeout(() => {console.log("paiement accepté !"); }, 2000)
@@ -247,24 +241,36 @@ console.log(tabPatient[i]);
 
 console.log("_________________________________________________________________________________________________________________________");
 
-// tabPatient[i].seDeplacer(pharmacie)
+pharmacie.pharmacyMoving(tabPatient[i])
+
+if ((tabPatient[i].argent - pharmacie.traitement[i]) > 0) {
+    console.log(tabPatient[i].nom," est guéri");
     
 }
 
-for (let i = 0; i < tabPatient.length; i++) {
+else if ((tabPatient[i].argent - pharmacie.traitement[i]) < 0) {
+    console.log(tabPatient[i].nom," est mort. C'est Allah que nous appartenons et c'est vers lui que nous retournerons");
+    tabPatient[i].lieu = "cimetière"
 
-    tabPatient[i].seDeplacer(pharmacie)
+}
 
-    console.log(`${tabPatient[i].nom} est dans la ${tabPatient[i].lieu}`);
-    
-    console.log(`Bonjour ${tabPatient[i].nom}, veuillez entrer.`);
-    
-    
-    console.log("solde de", tabPatient[i].nom,": ", tabPatient[i].argent, "euros");
-    
-    
-    console.log("_________________________________________________________________________________________________________________________");
-    
 
+console.log("_________________________________________________________________________________________________________________________");
+    
+}
+
+
+// for (let i = 0; i < pharmacie.traitement.length; i++) {
+
+//     if ((tabPatient[i].argent - pharmacie.traitement[i]) > 0) {
+//         console.log(tabPatient[i].nom," est guéri");
         
-    }
+//     }
+
+//     else if ((tabPatient[i].argent - pharmacie.traitement[i]) < 0) {
+//         console.log(tabPatient[i].nom," est mort. C'est Allah que nous appartenons et c'est vers lui que nous retournerons");
+//         tabPatient[i].lieu = "cimetière"
+
+// }
+
+// }
