@@ -31,7 +31,7 @@ class Patient {
 
 }
 
-let marcus = new Patient ("Marcus", "Mal indenté", 100, "vide", "malade","salledAttente") ;
+let marcus = new Patient ("Marcus", "mal indenté", 100, "vide", "malade","salledAttente") ;
 let optimus = new Patient ("Optimus", "unsave", 200, "vide", "malade","salledAttente") ;
 let sangoku = new Patient ("Sangoku", "404", 80, "vide", "malade", "salledAttente") ;
 let darthvader = new Patient ("Darthvader", "azmatique", 110, "vide", "malade", "salledAttente") ;
@@ -70,9 +70,37 @@ let docteur = {
 
     caisse : 0,
     personnePresente : [],
-    lieu : "cabinet"
+    lieu : "cabinet",
+
+    osculpter(patient) {
+        if (patient.maladie == "mal indenté") {
+            patient.poche = docteur.prescription.p1
+
+            console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p1}`);
+            console.log(`Cela vous fera 50 euros.`);
+
+            patient.argent = patient.argent - 50
+            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+        }
+
+        else if (patient.maladie == "unsave") {
+            patient.poche = docteur.prescription.p2
+
+            console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p2}`);
+            console.log(`Cela vous fera 50 euros.`);
+
+            patient.argent = patient.argent - 50
+            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+        }
+
+        
+
+    }
+    
 
 }
+
+
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Description de la pharmacie $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -116,3 +144,11 @@ console.log("___________________________________________________________________
 marcus.seDeplacer(docteur,marcus)
 
 console.log("________________________________________________________________________________________");
+
+docteur.osculpter(marcus)
+console.log(`Ma poche ----------> ${marcus.poche}`);
+
+console.log("________________________________________________________________________________________");
+
+docteur.osculpter(optimus)
+console.log(`Ma poche ----------> ${marcus.poche}`);
