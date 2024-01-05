@@ -72,6 +72,10 @@ let docteur = {
     personnePresente : [],
     lieu : "cabinet",
 
+//! La méthode osculpter va permettre de contrôler chaque patient en fonction de sa maladie.
+//! J'ai utilisé des conditons pour vérifier la maladie, déduire le montant de la consultation et récupérer
+//! la prescription
+
     osculpter(patient) {
         if (patient.maladie == "mal indenté") {
             patient.poche = docteur.prescription.p1
@@ -81,6 +85,8 @@ let docteur = {
 
             patient.argent = patient.argent - 50
             console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
         }
 
         else if (patient.maladie == "unsave") {
@@ -91,15 +97,54 @@ let docteur = {
 
             patient.argent = patient.argent - 50
             console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
         }
 
-        
+        else if (patient.maladie == "404") {
+            patient.poche = docteur.prescription.p3
 
+            console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p3}`);
+            console.log(`Cela vous fera 50 euros.`);
+
+            patient.argent = patient.argent - 50
+            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+        }
+
+        else if (patient.maladie == "azmatique") {
+            patient.poche = docteur.prescription.p4
+
+            console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p4}`);
+            console.log(`Cela vous fera 50 euros.`);
+
+            patient.argent = patient.argent - 50
+            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+        }
+
+        else if (patient.maladie == "syntaxError") {
+            patient.poche = docteur.prescription.p5
+
+            console.log(`Vous êtes ${patient.maladie}. Je vous préscris du ${docteur.prescription.p5}`);
+            console.log(`Cela vous fera 50 euros.`);
+
+            patient.argent = patient.argent - 50
+            console.log(`Voici. Portefeuille ----------> ${patient.argent}`);
+
+            console.log(`Ma poche ----------> prescription : ${patient.poche}`);
+        }
+
+        else {
+
+            "Vous n'êtes pas malade"
+        }
+        
     }
     
-
 }
-
 
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -146,9 +191,8 @@ marcus.seDeplacer(docteur,marcus)
 console.log("________________________________________________________________________________________");
 
 docteur.osculpter(marcus)
-console.log(`Ma poche ----------> ${marcus.poche}`);
+
 
 console.log("________________________________________________________________________________________");
 
 docteur.osculpter(optimus)
-console.log(`Ma poche ----------> ${marcus.poche}`);
