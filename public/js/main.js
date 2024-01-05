@@ -21,7 +21,14 @@ class Patient {
 
         this.lieu = destination.lieu
         destination.personnePresente.push(this.nom)
+
+        if (destination.personnePresente.length == 2) {
+            destination.personnePresente.splice(0,1)
         
+        } else {
+            
+        }
+       
 
         console.log(`${this.nom} est actuellement dans le/la ${this.lieu}`)
         console.log("Personne présente dans le cabinet ---------->",destination.personnePresente);
@@ -195,7 +202,13 @@ let pharmacie = {
         t5 : 20,
     },
 
-    lieu : "pharmacie"
+    lieu : "pharmacie",
+
+    pharmacyMoving(patient){
+        console.log(`__________________________________________ Bienvenue à la pharmacie ____________________________________________________`)
+
+        patient.lieu = pharmacie.lieu
+    }
 
 }
 
@@ -211,7 +224,8 @@ console.log(`__________________________________________ Bienvenue chez le médec
 let tabPatient = [marcus, optimus, sangoku, darthvader, semicolon]
 
 for (let i = 0; i < tabPatient.length; i++) {
-    console.log(`${tabPatient[i].nom} est dans la ${tabPatient[i].lieu}`);
+
+console.log(`${tabPatient[i].nom} est dans la ${tabPatient[i].lieu}`);
 console.log("_________________________________________________________________________________________________________________________");
 
 console.log(`Bonjour ${tabPatient[i].nom}, veuillez entrer.`);
@@ -233,5 +247,24 @@ console.log(tabPatient[i]);
 
 console.log("_________________________________________________________________________________________________________________________");
 
+// tabPatient[i].seDeplacer(pharmacie)
     
 }
+
+for (let i = 0; i < tabPatient.length; i++) {
+
+    tabPatient[i].seDeplacer(pharmacie)
+
+    console.log(`${tabPatient[i].nom} est dans la ${tabPatient[i].lieu}`);
+    
+    console.log(`Bonjour ${tabPatient[i].nom}, veuillez entrer.`);
+    
+    
+    console.log("solde de", tabPatient[i].nom,": ", tabPatient[i].argent, "euros");
+    
+    
+    console.log("_________________________________________________________________________________________________________________________");
+    
+
+        
+    }
