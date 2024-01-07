@@ -28,7 +28,6 @@ class Patient {
             
         }
        
-
         console.log(`${this.nom} est actuellement dans le/la ${this.lieu}`)
         console.log("Personne présente dans le cabinet ---------->",destination.personnePresente);
         
@@ -41,8 +40,6 @@ let optimus = new Patient ("Optimus", "unsave", 200, "vide", "malade","salledAtt
 let sangoku = new Patient ("Sangoku", "404", 80, "vide", "malade", "salledAttente") ;
 let darthvader = new Patient ("Darthvader", "azmatique", 110, "vide", "malade", "salledAttente") ;
 let semicolon = new Patient ("Semicolon", "syntaxError", 60, "vide", "malade", "salledAttente") ;
-
-
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Description du docteur $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
