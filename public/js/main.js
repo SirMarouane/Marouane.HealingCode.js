@@ -162,7 +162,7 @@ let docteur = {
             // setTimeout(() => {console.log("paiement en cours..."); }, 1000)
             // setTimeout(() => {console.log("paiement accepté !"); }, 2000)
             // setTimeout(() => {console.log("solde: ", patient.argent, "euros"); }, 3000)
-            
+        
 
             patient.argent = patient.argent - 50
 
