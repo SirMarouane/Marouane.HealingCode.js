@@ -269,3 +269,4 @@ console.log("___________________________________________________________________
 console.log(tabPatient);
 
 
+//! Les personnes qui n'ont pas assez d'argent vont au cimetière: le lieu est changé.
